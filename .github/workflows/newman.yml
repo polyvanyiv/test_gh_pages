@@ -52,10 +52,10 @@ jobs:
           name: RunReports
           path: testResults 
 
-  publish-to-gh-pages:
-    needs: test-api
-    runs-on: ubuntu-latest
-    steps:
+#   publish-to-gh-pages:
+#     needs: test-api
+#     runs-on: ubuntu-latest
+#     steps:
       - name: Checkout
         uses: actions/checkout@v4                
       - name: Create and clean gh-pages branch
