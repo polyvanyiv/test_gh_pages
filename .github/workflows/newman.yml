@@ -52,6 +52,24 @@ jobs:
           name: RunReports
           path: testResults 
 
+  publish-to-gh-pages:
+    needs: test-api
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4                
+      - name: Create and clean gh-pages branch
+        continue-on-error: true
+        run: |
+            git checkout --orphan gh-pages
+            git rm -rf . 
+                  
+      - name: Download Newman artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: RunReports
+          path: ./testResults
+
       - name: Deploy report to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v2
