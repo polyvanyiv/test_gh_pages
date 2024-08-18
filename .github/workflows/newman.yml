@@ -38,6 +38,8 @@ jobs:
 
       # Log content of report
       - name: Log content of report
+        if: always()
+        continue-on-error: true
         run: |
           cat ./testResults/htmlreport.html
         
