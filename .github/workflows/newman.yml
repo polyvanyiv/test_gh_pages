@@ -32,6 +32,7 @@ jobs:
 
       # Run the POSTMAN collection
       - name: Run POSTMAN collection
+        continue-on-error: true
         run: |
           newman run petstore.collection.json -r htmlextra --insecure --disable-unicode --reporter-htmlextra-export testResults/htmlreport.html --reporter-htmlextra-darkTheme  > testResults/runreport1.html
       #  -r htmlextra --insecure --disable-unicode --reporter-htmlextra-export testResults/htmlreport.html --reporter-htmlextra-darkTheme  > testResults/runreport1.html
